@@ -41,10 +41,10 @@ class MainDrawer extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Police Firstname'
+                        Text('Firstname'
                         ),
                         SizedBox(width: 10,),
-                        Text('Police Lastname',
+                        Text('Lastname',
                         ),
                       ],
                     ),
