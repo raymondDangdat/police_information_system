@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:police_info_system/app/widgets/main_drawer.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -17,6 +18,7 @@ class HomeView extends GetView<HomeController> {
           }, icon: Icon(Icons.light_mode))
         ],
       ),
+      drawer: MainDrawer(),
       body: Scaffold(
         body: SafeArea(child: SingleChildScrollView(
           child: Column(
