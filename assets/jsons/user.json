@@ -1,0 +1,17 @@
+{
+  "user": {
+    "id": 21,
+    "email": "realdangdat@gmail.com",
+    "first_name": "Dangdat",
+    "last_name": "Raymond Delmut",
+    "phone_number": "08142081266",
+    "is_active": true,
+    "is_staff": false,
+    "last_login": "2021-08-23T05:52:22.329417Z",
+    "avatar": "https://res.cloudinary.com/hb9wn2qru/image/upload/v1/media/avatar/Dangdat_scue8y",
+    "about": "I am interested in property",
+    "user_type": "developer",
+    "is_email_verified": true
+  },
+  "token": "08252c30e96fb8d206fb6f34881077d72340b1ce0b2641d2ab0380ebd970920c"
+}
