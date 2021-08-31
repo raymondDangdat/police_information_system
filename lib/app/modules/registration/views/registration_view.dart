@@ -19,7 +19,7 @@ class RegistrationView extends StatefulWidget {
 class _RegistrationViewState extends State<RegistrationView> {
   final GlobalKey<FormState> formState = GlobalKey<FormState>();
 
-  RegistrationController controller = Get.find();
+  RegistrationController controller = Get.put(RegistrationController());
 
   String? birthDateInString;
   String? dateRecruitedInString;
@@ -436,13 +436,18 @@ class _RegistrationViewState extends State<RegistrationView> {
                         height: 10,
                       ),
                       SizedBox(height: 20,),
-                      TextFormField(
+                      Obx(() =>TextFormField(
                           key: Key('password'),
                           controller: controller.passwordController,
+                          obscureText: controller.passwordInvisible.value,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
-                          obscureText: true,
                           decoration: InputDecoration(
                             hintText: 'Enter Password',
+                            suffixIcon: IconButton(
+                                icon: Icon(controller.passwordInvisible.value? Icons.visibility_off_outlined : Icons.visibility),
+                                onPressed: () {
+                                  controller.passwordInvisible.value = !controller.passwordInvisible.value;
+                                }),
                             labelStyle: TextStyle(
                                 color: Color.fromRGBO(155, 169, 201, 1)),
                             enabledBorder: OutlineInputBorder(
@@ -472,7 +477,7 @@ class _RegistrationViewState extends State<RegistrationView> {
                               return 'Please enter a valid password';
                             }
                             return null;
-                          }),
+                          })),
                       SizedBox(height: 10,),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -501,7 +506,7 @@ class _RegistrationViewState extends State<RegistrationView> {
                         children: [
                           TextButton(onPressed: (){
                             Get.off(() => LoginView());
-                          }, child: Text("Don't have an account?")),
+                          }, child: Text("Have an account?")),
                           TextButton(onPressed: (){
                           }, child: Text("Forgot Password?"))
                         ],

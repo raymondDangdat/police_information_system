@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:police_info_system/app/controllers/user_controller.dart';
 import 'package:police_info_system/app/modules/login/controllers/login_controller.dart';
 import 'package:police_info_system/app/modules/registration/controllers/registration_controller.dart';
 
@@ -13,6 +14,7 @@ void main() async{
   await initialization.then((value){
     Get.lazyPut(() => RegistrationController());
     Get.lazyPut(() => LoginController());
+    Get.lazyPut(() => UserController());
   });
   runApp(
     GetMaterialApp(

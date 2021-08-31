@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:police_info_system/app/controllers/user_controller.dart';
 
 class MainDrawer extends StatelessWidget {
+  final UserController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -106,6 +109,7 @@ class MainDrawer extends StatelessWidget {
                     menu: 'Logout',
                     onTapped: () async{
                       Navigator.pop(context);
+                      controller.signOut();
                     }),
               ],
             ),

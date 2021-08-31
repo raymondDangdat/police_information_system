@@ -8,10 +8,11 @@ import 'package:police_info_system/app/widgets/input_fields.dart';
 
 import '../controllers/login_controller.dart';
 
-class LoginView extends GetView<LoginController> {
-  final _emailFieldController = TextEditingController();
-  final _passwordFieldController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
+class LoginView extends StatelessWidget {
+
+  LoginController controller = Get.put(LoginController());
+
+  final GlobalKey<FormState> formState = GlobalKey<FormState>();
   bool authenticating = false;
   @override
   Widget build(BuildContext context) {
@@ -36,25 +37,26 @@ class LoginView extends GetView<LoginController> {
               ),
             ),
             Form(
-              key: formKey,
+              key: formState,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SizedBox(height: 20,),
                   EmailInputs(
-                    emailFieldController: _emailFieldController,
+                    emailFieldController: controller.emailController,
                   ),
-
-                  TextFormField(
-                      key: Key('email'),
+                  Obx(() => TextFormField(
+                      key: Key('password'),
                       obscureText: controller.passwordInvisible.value,
-                      controller: _passwordFieldController,
+                      controller: controller.passwordController,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       decoration: InputDecoration(
                         hintText: 'Enter Password',
                         prefixIcon: Icon(Icons.lock_rounded),
                         suffixIcon: IconButton(
-                            icon: Icon(Icons.visibility_off_outlined),
+                            icon: Icon(controller.passwordInvisible.value? Icons.visibility_off_outlined : Icons.visibility),
                             onPressed: () {
+                              controller.passwordInvisible.value = !controller.passwordInvisible.value;
                             }),
                         labelStyle: TextStyle(
                             color: Color.fromRGBO(155, 169, 201, 1)),
@@ -81,21 +83,21 @@ class LoginView extends GetView<LoginController> {
                             )),
                       ),
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          print("Something");
+                        if (value == null || value.isEmpty || value.length < 6) {
                           return 'Please enter a valid password';
                         }
                         return null;
-                      }),
+                      })),
                   SizedBox(
                     height: 10,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: authenticating ? Center(child: CircularProgressIndicator(backgroundColor: Theme.of(context).primaryColor,),) : customButton(context, 'Login', () {
-                      _searchEmailExist(context, _emailFieldController.text);
-
-                      Get.offAll(()=>HomeView());
+                    child: customButton(context, 'Login', () {
+                      final form = formState.currentState;
+                      if (form!.validate() ) {
+                        controller.signIn();
+                      }
                     }),
                   ),
 
@@ -117,5 +119,4 @@ class LoginView extends GetView<LoginController> {
     );
   }
 
-  void _searchEmailExist(BuildContext context, String text) {}
 }
