@@ -30,5 +30,10 @@ class AppPages {
       page: () => RegistrationView(),
       binding: RegistrationBinding(),
     ),
+    // GetPage(
+    //   name: _Paths.TEST,
+    //   page: () => TestView(),
+    //   binding: TestBinding(),
+    // ),
   ];
 }

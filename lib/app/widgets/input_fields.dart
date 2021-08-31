@@ -13,6 +13,7 @@ class EmailInputs extends StatelessWidget {
         TextFormField(
             key: Key('email'),
             keyboardType: TextInputType.emailAddress,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             controller: emailFieldController,
             decoration: InputDecoration(
               hintText: 'smart@gmail.com',
