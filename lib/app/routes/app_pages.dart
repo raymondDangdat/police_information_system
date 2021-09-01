@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-
+import 'package:police_info_system/app/modules/approve_officers/bindings/approve_officers_binding.dart';
+import 'package:police_info_system/app/modules/approve_officers/views/approve_officers_view.dart';
 import 'package:police_info_system/app/modules/home/bindings/home_binding.dart';
 import 'package:police_info_system/app/modules/home/views/home_view.dart';
 import 'package:police_info_system/app/modules/login/bindings/login_binding.dart';
@@ -30,10 +31,17 @@ class AppPages {
       page: () => RegistrationView(),
       binding: RegistrationBinding(),
     ),
+
+    GetPage(
+      name: _Paths.APPROVE_OFFICERS,
+      page: () => ApproveOfficersView(),
+      binding: ApproveOfficersBinding(),
+    ),
     // GetPage(
     //   name: _Paths.TEST,
     //   page: () => TestView(),
     //   binding: TestBinding(),
     // ),
+
   ];
 }

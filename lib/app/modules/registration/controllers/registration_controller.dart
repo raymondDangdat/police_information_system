@@ -32,6 +32,7 @@ class RegistrationController extends GetxController {
   late TextEditingController phoneController;
   late TextEditingController passwordController;
   late TextEditingController heightController;
+  late TextEditingController stationController;
 
 
 
@@ -43,6 +44,7 @@ class RegistrationController extends GetxController {
     phoneController = TextEditingController();
     passwordController = TextEditingController();
     heightController = TextEditingController();
+    stationController = TextEditingController();
     super.onInit();
   }
 
@@ -59,6 +61,7 @@ class RegistrationController extends GetxController {
     phoneController.dispose();
     passwordController.dispose();
     heightController.dispose();
+    stationController.dispose();
   }
 
   void increment() => count.value++;
@@ -94,6 +97,7 @@ class RegistrationController extends GetxController {
     passwordController.clear();
     addressController.clear();
     heightController.clear();
+    stationController.clear();
   }
 
   Future uploadFile(File file, String uId) async {
@@ -119,8 +123,11 @@ class RegistrationController extends GetxController {
       "gender": gender.value,
       "maritalStatus": maritalStatus.value,
       "rank" : rank.value,
+      'dateRecruited': dateRecruited.value,
       'height' : heightController.text,
-      'profile': profileUrl
+      'profile': profileUrl,
+      'approved': false,
+      'station': stationController.text
     });
   }
 }
