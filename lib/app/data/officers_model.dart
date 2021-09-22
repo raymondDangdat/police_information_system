@@ -6,7 +6,7 @@ class OfficerModel {
   String? rank;
   String? station;
   String? dateRecruited;
-  String? age;
+  int? age;
   String? address;
   String? height;
   String? maritalStatus;
@@ -45,6 +45,7 @@ class OfficerModel {
     age = jsonMap['age'] != null ? jsonMap['age'] : '';
     phone = jsonMap['phone'] != null ? jsonMap['phone'] : '';
     approved = jsonMap['approved'] != null ? jsonMap['approved'] : '';
+    profile = jsonMap['profile'] != null ? jsonMap['profile'] : '';
   }
 
   factory OfficerModel.fromDocument(DocumentSnapshot doc) {
