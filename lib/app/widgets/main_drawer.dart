@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:police_info_system/app/controllers/user_controller.dart';
+import 'package:police_info_system/app/routes/app_pages.dart';
 
 class MainDrawer extends StatelessWidget {
   final UserController controller = Get.find();
@@ -62,6 +63,13 @@ class MainDrawer extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
+                menuItems(menu: 'Approve Officers', onTapped: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.APPROVE_OFFICERS);
+                }),
+                SizedBox(
+                  height: 20,
+                ),
                 menuItems(menu: 'Information', onTapped: () {
                   Navigator.pop(context);
                 }),
@@ -69,10 +77,7 @@ class MainDrawer extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Divider(),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Divider(),
-                ),
+
                 menuItems(menu: 'Query', onTapped: () {
                   Navigator.pop(context);
                 }),
@@ -83,10 +88,6 @@ class MainDrawer extends StatelessWidget {
                 menuItems(menu: 'Report', onTapped: () {
                   Navigator.pop(context);
                 }),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Divider(),
-                ),
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -101,10 +102,7 @@ class MainDrawer extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Divider(),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Divider(),
-                ),
+
                 menuItems(
                     menu: 'Logout',
                     onTapped: () async{

@@ -4,10 +4,9 @@ import 'package:get/get.dart';
 import 'package:police_info_system/app/controllers/user_controller.dart';
 import 'package:police_info_system/app/widgets/main_drawer.dart';
 
-import '../controllers/home_controller.dart';
 
 class HomeView extends StatelessWidget {
-  // UserController = Get.put(UserController);
+  UserController controller = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(

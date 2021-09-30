@@ -254,12 +254,51 @@ class _RegistrationViewState extends State<RegistrationView> {
                       SizedBox(height: 10,),
                       TextFormField(
                           key: Key('height'),
+                          keyboardType: TextInputType.number,
                           controller: controller.heightController,
                         maxLength: 3,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                           decoration: InputDecoration(
                             counterText: "",
                             hintText: 'Valid height in CM. e.g 150cm',
+                            labelStyle: TextStyle(
+                                color: Color.fromRGBO(155, 169, 201, 1)),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Color.fromRGBO(155, 169, 201, 1),
+                                )),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Color.fromRGBO(47, 77, 145, 1)),
+                                borderRadius: BorderRadius.circular(10)),
+                            border: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.brown),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Color.fromRGBO(47, 77, 145, 1)),
+                                borderRadius: BorderRadius.circular(10)
+                            ),
+                            errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(
+                                  color: Color.fromRGBO(155, 169, 201, 1),
+                                )),
+                          ),
+                          validator: (value) {
+                            if (value != null && value.length < 2) {
+                              return 'Please enter a valid height';
+                            }
+                            return null;
+                          }),
+                      SizedBox(height: 10,),
+                      TextFormField(
+                          key: Key('Station'),
+                          controller: controller.stationController,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          decoration: InputDecoration(
+                            counterText: "",
+                            hintText: 'Your station address.',
                             labelStyle: TextStyle(
                                 color: Color.fromRGBO(155, 169, 201, 1)),
                             enabledBorder: OutlineInputBorder(
