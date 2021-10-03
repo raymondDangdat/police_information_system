@@ -7,14 +7,16 @@ class UserModel {
   static const CART = "cart";
   static const PHONE = "phone";
   static const ADDRESS = "address";
+  static const PROFILE = "profile";
 
   String? id;
   String? name;
   String? email;
   String? phone;
   String? address;
+  String? profile;
 
-  UserModel({this.id, this.name, this.email, this.phone, this.address});
+  UserModel({this.id, this.name, this.email, this.phone, this.address, this.profile});
 
   UserModel.fromSnapshot(DocumentSnapshot snapshot) {
     name = snapshot.data()![NAME];
@@ -22,6 +24,7 @@ class UserModel {
     id = snapshot.data()![ID];
     phone = snapshot.data()![PHONE];
     address = snapshot.data()![ADDRESS];
+    profile = snapshot.data()![PROFILE];
 
   }
 }

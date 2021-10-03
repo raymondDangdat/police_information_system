@@ -23,7 +23,7 @@ class ApproveOfficersView extends GetView<ApproveOfficersController> {
     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
     child: ListTile(
       onTap: (){
-        Get.toNamed(Routes.OFFICER_DETAILS);
+        Get.toNamed(Routes.OFFICER_DETAILS, arguments: officer);
       },
       leading: CircleAvatar(
       backgroundImage: NetworkImage(officer.profile!),

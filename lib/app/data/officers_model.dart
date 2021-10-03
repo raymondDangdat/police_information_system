@@ -11,6 +11,7 @@ class OfficerModel {
   String? height;
   String? maritalStatus;
   String? phone;
+  String? gender;
   String? profile;
   String? email;
   bool? approved;
@@ -29,6 +30,7 @@ class OfficerModel {
     this.maritalStatus,
     this.phone,
     this.email,
+    this.gender,
     this.approved,
 
   });
@@ -46,6 +48,7 @@ class OfficerModel {
     phone = jsonMap['phone'] != null ? jsonMap['phone'] : '';
     approved = jsonMap['approved'] != null ? jsonMap['approved'] : '';
     profile = jsonMap['profile'] != null ? jsonMap['profile'] : '';
+    gender = jsonMap['gender'] != null ? jsonMap['gender'] : '';
   }
 
   factory OfficerModel.fromDocument(DocumentSnapshot doc) {
@@ -62,6 +65,7 @@ class OfficerModel {
         dateRecruited: doc['dateRecruited'] != null ? doc['dateRecruited'] : '',
         station: doc['station'] != null ? doc['station'] : '',
       approved: doc['approved'] != null ? doc['approved'] : '',
+        gender: doc['gender'] != null ? doc['gender'] : '',
     );
   }
 
@@ -79,6 +83,7 @@ class OfficerModel {
     map["dateRecruited"] = dateRecruited;
     map["station"] = station;
     map["approved"] = approved;
+    map["gender"] = gender;
     return map;
   }
 }

@@ -1,3 +1,7 @@
+
+
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,8 +13,8 @@ import 'package:police_info_system/app/widgets/loading_card.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
-class UserController extends GetxController {
-  static UserController instance = Get.find();
+class UserDetailController extends GetxController {
+  static UserDetailController instance = Get.find();
   Rx<User>? firebaseUser;
   RxBool isLoggedIn = false.obs;
   TextEditingController name = TextEditingController();
@@ -19,7 +23,7 @@ class UserController extends GetxController {
   TextEditingController address = TextEditingController();
   TextEditingController password = TextEditingController();
   String usersCollection = "pisUsers";
-  Rx<UserModel> userModel = UserModel().obs;
+  UserModel userDetail = UserModel();
   RxBool showPassword = false.obs;
 
   @override
@@ -28,6 +32,13 @@ class UserController extends GetxController {
     firebaseUser = Rx<User>(auth.currentUser!);
     // firebaseUser!.bindStream(auth.userChanges());
     // ever(firebaseUser, _setInitialScreen);
+  }
+
+
+  @override
+  void onInit() {
+    super.onInit();
+    getUserDetails();
   }
 
 
@@ -81,4 +92,10 @@ class UserController extends GetxController {
       .doc(firebaseUser!.value.uid)
       .snapshots()
       .map((snapshot) => UserModel.fromSnapshot(snapshot));
+
+  void getUserDetails() async{
+    DocumentSnapshot doc = await firebaseFirestore.collection(usersCollection).doc(FirebaseAuth.instance.currentUser!.uid).get();
+    userDetail = UserModel.fromSnapshot(doc);
+
+  }
 }

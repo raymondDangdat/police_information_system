@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:police_info_system/app/constants/shared_preferences.dart';
 import 'package:police_info_system/app/controllers/user_controller.dart';
+import 'package:police_info_system/app/controllers/user_detail_controler.dart';
 import 'package:police_info_system/app/routes/app_pages.dart';
 
 class MainDrawer extends StatelessWidget {
-  final UserController controller = Get.find();
+  final UserDetailController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +33,7 @@ class MainDrawer extends StatelessWidget {
                             color: Color.fromRGBO(242, 245, 243, 1),
                             borderRadius: BorderRadius.circular(100),
                             image: DecorationImage(image:  NetworkImage(
-                            "https://avatar-url-generator.tb3turntable.fun/img/avatar-url-generator-2.png"), fit: BoxFit.cover)
+                            controller.userDetail.profile!), fit: BoxFit.cover)
                         ),
                       ),
                     ),
@@ -63,6 +65,8 @@ class MainDrawer extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
+
+          if(SharedPrefs.sharedPreferences!.getString(SharedPrefs.userEmail) == "policeadmin@gmail.com")
                 menuItems(menu: 'Approve Officers', onTapped: () {
                   Navigator.pop(context);
                   Get.toNamed(Routes.APPROVE_OFFICERS);
