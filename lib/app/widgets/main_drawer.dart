@@ -72,6 +72,7 @@ class MainDrawer extends StatelessWidget {
                   height: 20,
                 ),
                 menuItems(menu: 'Information', onTapped: () {
+                  Navigator.pop(context);
                   Get.toNamed(Routes.POLICE_INFO);
                 }),
                 Padding(
@@ -81,13 +82,15 @@ class MainDrawer extends StatelessWidget {
 
                 menuItems(menu: 'Query', onTapped: () {
                   Navigator.pop(context);
+                  Get.toNamed(Routes.QUERY);
                 }),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Divider(),
                 ),
-                menuItems(menu: 'Report', onTapped: () {
+                menuItems(menu: 'Reports', onTapped: () {
                   Navigator.pop(context);
+                  Get.toNamed(Routes.REPORTS);
                 }),
 
                 Padding(
@@ -96,6 +99,7 @@ class MainDrawer extends StatelessWidget {
                 ),
                 menuItems(menu: 'Settings', onTapped: () {
                   Navigator.pop(context);
+                  Get.toNamed(Routes.SETTINGS);
                 }),
 
                 Padding(
@@ -106,6 +110,7 @@ class MainDrawer extends StatelessWidget {
                     menu: 'Help',
                     onTapped: () {
                       Navigator.pop(context);
+                      Get.toNamed(Routes.HELP);
                     }),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),

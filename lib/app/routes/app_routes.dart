@@ -16,6 +16,7 @@ abstract class Routes {
   static const SETTINGS = _Paths.SETTINGS;
   static const HELP = _Paths.HELP;
   static const REPORTS = _Paths.REPORTS;
+  static const ADD_REPORT = _Paths.ADD_REPORT;
 }
 
 abstract class _Paths {
@@ -31,4 +32,5 @@ abstract class _Paths {
   static const SETTINGS = '/settings';
   static const HELP = '/help';
   static const REPORTS = '/reports';
+  static const ADD_REPORT = '/add-report';
 }

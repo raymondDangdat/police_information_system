@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:police_info_system/app/modules/add_report/bindings/add_report_binding.dart';
+import 'package:police_info_system/app/modules/add_report/views/add_report_view.dart';
 import 'package:police_info_system/app/modules/approve_officers/bindings/approve_officers_binding.dart';
 import 'package:police_info_system/app/modules/approve_officers/views/approve_officers_view.dart';
 import 'package:police_info_system/app/modules/help/bindings/help_binding.dart';
@@ -91,6 +93,11 @@ class AppPages {
       name: _Paths.REPORTS,
       page: () => ReportsView(),
       binding: ReportsBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_REPORT,
+      page: () => AddReportView(),
+      binding: AddReportBinding(),
     ),
   ];
 }
