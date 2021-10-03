@@ -47,10 +47,7 @@ class MainDrawer extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text('Firstname'
-                        ),
-                        SizedBox(width: 10,),
-                        Text('Lastname',
+                        Text('${controller.userDetail.name}'
                         ),
                       ],
                     ),
@@ -75,7 +72,7 @@ class MainDrawer extends StatelessWidget {
                   height: 20,
                 ),
                 menuItems(menu: 'Information', onTapped: () {
-                  Navigator.pop(context);
+                  Get.toNamed(Routes.POLICE_INFO);
                 }),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -90,6 +87,14 @@ class MainDrawer extends StatelessWidget {
                   child: Divider(),
                 ),
                 menuItems(menu: 'Report', onTapped: () {
+                  Navigator.pop(context);
+                }),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Divider(),
+                ),
+                menuItems(menu: 'Settings', onTapped: () {
                   Navigator.pop(context);
                 }),
 

@@ -36,7 +36,8 @@ class ApproveOfficersView extends GetView<ApproveOfficersController> {
     }, child: Text(officer.approved!?  'Approved' : 'Approve')),),
     );
     })
-    ));
+    )
+    );
   }
   approveOfficer(String id) {
     controller.updateOfficer(id);
