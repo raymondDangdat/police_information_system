@@ -14,24 +14,20 @@ class ReportsView extends GetView<ReportsController> {
         centerTitle: true,
       ),
       body: Obx(()=> ListView.builder(
-    itemCount: controller.officers.length,
+    itemCount: controller.reports.length,
     physics: BouncingScrollPhysics(),
     scrollDirection: Axis.vertical,
     itemBuilder: (context, index){
-    final officer = controller.officers[index];
+    final report = controller.reports[index];
     return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
     child: ListTile(
     onTap: (){
-    Get.toNamed(Routes.OFFICER_DETAILS, arguments: officer);
+    Get.toNamed(Routes.REPORT_DETAIL, arguments: report);
     },
-    leading: CircleAvatar(
-    backgroundImage: NetworkImage(officer.profile!),
-    backgroundColor: Colors.blue,
-    ),
-    title: Text(officer.name!, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.blue)),
-    subtitle: Text(officer.rank!.capitalize?? ''),
-    trailing: Text(officer.station!),
+    title: Text(report.reportSubject!, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.blue)),
+    subtitle: Text(report.reporterName!),
+    trailing: Text(report.station!),
 
     ),
     );

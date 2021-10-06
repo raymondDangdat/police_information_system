@@ -84,7 +84,8 @@ class RegistrationController extends GetxController {
       });
         Get.offAllNamed(Routes.HOME);
     } catch (e) {
-      // Get.back();
+      print(e.toString());
+      Get.back();
       Get.snackbar("Registration", e.toString(),
           backgroundColor: Colors.white);
     }

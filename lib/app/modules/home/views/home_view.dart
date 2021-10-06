@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
         body: SafeArea(child: SingleChildScrollView(
           child: Column(
             children: [
-              Text("Home Men")
+              Text('${controller.phone}')
             ],
           ),
         )),

@@ -20,6 +20,8 @@ import 'package:police_info_system/app/modules/registration/bindings/registratio
 import 'package:police_info_system/app/modules/registration/views/registration_view.dart';
 import 'package:police_info_system/app/modules/report/bindings/report_binding.dart';
 import 'package:police_info_system/app/modules/report/views/report_view.dart';
+import 'package:police_info_system/app/modules/report_detail/bindings/report_detail_binding.dart';
+import 'package:police_info_system/app/modules/report_detail/views/report_detail_view.dart';
 import 'package:police_info_system/app/modules/reports/bindings/reports_binding.dart';
 import 'package:police_info_system/app/modules/reports/views/reports_view.dart';
 import 'package:police_info_system/app/modules/settings/bindings/settings_binding.dart';
@@ -98,6 +100,11 @@ class AppPages {
       name: _Paths.ADD_REPORT,
       page: () => AddReportView(),
       binding: AddReportBinding(),
+    ),
+    GetPage(
+      name: _Paths.REPORT_DETAIL,
+      page: () => ReportDetailView(),
+      binding: ReportDetailBinding(),
     ),
   ];
 }

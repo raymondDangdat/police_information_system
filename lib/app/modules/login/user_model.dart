@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class User {
   SingleUser? user;
   String? token;
@@ -77,5 +79,81 @@ class SingleUser {
     data['user_type'] = userType;
     data['is_email_verified'] = isEmailVerified;
     return data;
+  }
+}
+
+
+class UserModel {
+  String? dateRecruited;
+  String? email;
+  String? gender;
+  String? height;
+  String? id;
+  String? maritalStatus;
+  String? name;
+  String? phone;
+  String? profile;
+  String? rank;
+  String? station;
+
+  UserModel({
+    this.dateRecruited,
+    this.email,
+    this.gender,
+    this.height,
+    this.maritalStatus,
+    this.name,
+    this.id,
+    this.profile,
+    this.phone,
+    this.rank,
+    this.station
+
+  });
+  UserModel.fromJSON(Map<String, dynamic> jsonMap) {
+    dateRecruited = jsonMap['dateRecruited'] != null ? jsonMap['dateRecruited'] : '';
+    email = jsonMap['email'] != null ? jsonMap['email'] : '';
+    gender = jsonMap['gender'] != null ? jsonMap['gender'] : '';
+    height = jsonMap['height'] != null ? jsonMap['height'] : '';
+    maritalStatus = jsonMap['maritalStatus'] != null ? jsonMap['maritalStatus'] : '';
+    name = jsonMap['name'] != null ? jsonMap['name'] : '';
+    id = jsonMap['id'] != null ? jsonMap['id'] : '';
+    profile = jsonMap['profile'] != null ? jsonMap['profile'] : '';
+    phone = jsonMap['phone'] != null ? jsonMap['phone'] : '';
+    rank = jsonMap['rank'] != null ? jsonMap['rank'] : '';
+    station = jsonMap['station'] != null ? jsonMap['station'] : '';
+
+  }
+
+  factory UserModel.fromDocument(DocumentSnapshot doc) {
+    return UserModel(
+      dateRecruited : doc.data()!['dateRecruited'] != null ? doc.data()!['dateRecruited'] : '',
+      email : doc.data()!['email'] != null ? doc.data()!['email'] : '',
+      gender: doc.data()!['gender'] != null ? doc.data()!['gender'] : '',
+      height: doc.data()!['height'] != null ? doc.data()!['height'] : '',
+      maritalStatus: doc.data()!['maritalStatus'] != null ? doc.data()!['maritalStatus'] : '',
+      name: doc.data()!['name'] != null ? doc.data()!['name'] : '',
+      id: doc.data()!['id'] != null ? doc.data()!['id'] : '',
+      profile: doc.data()!['profile'] != null ? doc.data()!['profile'] : '',
+      phone: doc.data()!['phone'] != null ? doc.data()!['phone'] : '',
+      rank: doc.data()!['rank'] != null ? doc.data()!['rank'] : '',
+      station: doc.data()!['station'] != null ? doc.data()!['station'] : '',
+    );
+  }
+
+  Map toMap() {
+    var map = Map<String, dynamic>();
+    map['dateRecruited'] = dateRecruited;
+    map["email"] = email;
+    map["gender"] = gender;
+    map["height"] = height;
+    map["maritalStatus"] = maritalStatus;
+    map["name"] = name;
+    map["id"] = id;
+    map["profile"] = profile;
+    map["phone"] = phone;
+    map["rank"] = rank;
+    map["station"] = station;
+    return map;
   }
 }

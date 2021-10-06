@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:police_info_system/app/modules/login/controllers/login_controller.dart';
 import 'package:police_info_system/app/widgets/custom_widgets.dart';
 
 import '../controllers/add_report_controller.dart';
 
 class AddReportView extends GetView<AddReportController> {
   final GlobalKey<FormState> formState = GlobalKey<FormState>();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +18,7 @@ class AddReportView extends GetView<AddReportController> {
         centerTitle: true,
       ),
       body: SafeArea(child: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
           children: [
@@ -29,6 +33,7 @@ class AddReportView extends GetView<AddReportController> {
                 child: Image.asset('assets/images/logo.png', fit: BoxFit.cover,),
               ),
             ),
+
             Form(
               key: formState,
               child: Column(
@@ -120,7 +125,7 @@ class AddReportView extends GetView<AddReportController> {
                     child: customButton(context, 'Submit', () {
                       final form = formState.currentState;
                       if (form!.validate() ) {
-                        // controller.signIn();
+                        controller.sendReport();
                       }
                     }),
                   ),

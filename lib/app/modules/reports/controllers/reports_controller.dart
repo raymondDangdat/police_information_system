@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:police_info_system/app/data/officers_model.dart';
+import 'package:police_info_system/app/data/report_model.dart';
 import 'package:police_info_system/app/routes/app_pages.dart';
 import 'package:police_info_system/app/widgets/loading_card.dart';
 
 class ReportsController extends GetxController {
-  RxList<OfficerModel> officers = RxList<OfficerModel>([]);
+  RxList<ReportModel> reports = RxList<ReportModel>([]);
   FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-  String collection = "pisUsers";
+  String collection = "pisReports";
 
   @override
   void onInit() {
@@ -17,29 +17,29 @@ class ReportsController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    officers.bindStream(getAllOfficers());
+    reports.bindStream(getAllReports());
   }
 
   @override
   void onClose() {}
 
-  deleteProduct(String productId) async{
+  deleteReport(String productId) async{
     await firebaseFirestore.collection(collection).doc(productId).delete(
     );
     Get.offAllNamed(Routes.HOME);
   }
 
-  updateOfficer(String officerId) async{
+  updateReport(String officerId) async{
     LoadingCard();
     await firebaseFirestore.collection(collection).doc(officerId).update({
       "approved": true,
 
     });
-    getAllOfficers();
+    getAllReports();
   }
 
 
-  Stream<List<OfficerModel>> getAllOfficers() =>
+  Stream<List<ReportModel>> getAllReports() =>
       firebaseFirestore.collection(collection).snapshots().map((query) =>
-          query.docs.map((item) => OfficerModel.fromJSON(item.data())).toList());
+          query.docs.map((item) => ReportModel.fromJSON(item.data())).toList());
 }
