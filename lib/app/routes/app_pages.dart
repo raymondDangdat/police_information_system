@@ -16,6 +16,8 @@ import 'package:police_info_system/app/modules/police_info/bindings/police_info_
 import 'package:police_info_system/app/modules/police_info/views/police_info_view.dart';
 import 'package:police_info_system/app/modules/query/bindings/query_binding.dart';
 import 'package:police_info_system/app/modules/query/views/query_view.dart';
+import 'package:police_info_system/app/modules/register_station/bindings/register_station_binding.dart';
+import 'package:police_info_system/app/modules/register_station/views/register_station_view.dart';
 import 'package:police_info_system/app/modules/registration/bindings/registration_binding.dart';
 import 'package:police_info_system/app/modules/registration/views/registration_view.dart';
 import 'package:police_info_system/app/modules/report/bindings/report_binding.dart';
@@ -26,6 +28,8 @@ import 'package:police_info_system/app/modules/reports/bindings/reports_binding.
 import 'package:police_info_system/app/modules/reports/views/reports_view.dart';
 import 'package:police_info_system/app/modules/settings/bindings/settings_binding.dart';
 import 'package:police_info_system/app/modules/settings/views/settings_view.dart';
+import 'package:police_info_system/app/modules/stations/bindings/stations_binding.dart';
+import 'package:police_info_system/app/modules/stations/views/stations_view.dart';
 
 part 'app_routes.dart';
 
@@ -105,6 +109,16 @@ class AppPages {
       name: _Paths.REPORT_DETAIL,
       page: () => ReportDetailView(),
       binding: ReportDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.REGISTER_STATION,
+      page: () => RegisterStationView(),
+      binding: RegisterStationBinding(),
+    ),
+    GetPage(
+      name: _Paths.STATIONS,
+      page: () => StationsView(),
+      binding: StationsBinding(),
     ),
   ];
 }

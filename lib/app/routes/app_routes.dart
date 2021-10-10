@@ -18,6 +18,8 @@ abstract class Routes {
   static const REPORTS = _Paths.REPORTS;
   static const ADD_REPORT = _Paths.ADD_REPORT;
   static const REPORT_DETAIL = _Paths.REPORT_DETAIL;
+  static const REGISTER_STATION = _Paths.REGISTER_STATION;
+  static const STATIONS = _Paths.STATIONS;
 }
 
 abstract class _Paths {
@@ -35,4 +37,6 @@ abstract class _Paths {
   static const REPORTS = '/reports';
   static const ADD_REPORT = '/add-report';
   static const REPORT_DETAIL = '/report-detail';
+  static const REGISTER_STATION = '/register-station';
+  static const STATIONS = '/stations';
 }

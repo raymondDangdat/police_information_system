@@ -70,6 +70,24 @@ class MainDrawer extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
+                SizedBox(height: 20,),
+                if(SharedPrefs.sharedPreferences!.getString(SharedPrefs.userEmail) == "policeadmin@gmail.com")
+                  menuItems(menu: 'Register Station', onTapped: () {
+                    Navigator.pop(context);
+                    Get.toNamed(Routes.REGISTER_STATION);
+                  }),
+                SizedBox(
+                  height: 20,
+                ),
+
+                menuItems(menu: 'Stations', onTapped: () {
+                  Navigator.pop(context);
+                  Get.toNamed(Routes.STATIONS);
+                }),
+                SizedBox(
+                  height: 20,
+                ),
+
                 menuItems(menu: 'Information', onTapped: () {
                   Navigator.pop(context);
                   Get.toNamed(Routes.POLICE_INFO);
