@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:police_info_system/app/constants/shared_preferences.dart';
-import 'package:police_info_system/app/controllers/user_controller.dart';
 import 'package:police_info_system/app/controllers/user_detail_controler.dart';
 import 'package:police_info_system/app/routes/app_pages.dart';
 

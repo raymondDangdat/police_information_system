@@ -33,7 +33,9 @@ class ApproveOfficersView extends GetView<ApproveOfficersController> {
     subtitle: Text(officer.rank!.capitalize?? ''),
     trailing: ElevatedButton(onPressed: (){
       officer.approved! ? null : approveOfficer(officer.id!);
-    }, child: Text(officer.approved!?  'Approved' : 'Approve')),),
+    }, child: Text(officer.approved!?  'Approved' : 'Approve')),
+    ),
+
     );
     })
     )

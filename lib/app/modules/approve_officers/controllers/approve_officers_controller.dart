@@ -40,6 +40,6 @@ class ApproveOfficersController extends GetxController {
 
 
   Stream<List<OfficerModel>> getAllOfficers() =>
-      firebaseFirestore.collection(collection).snapshots().map((query) =>
+      firebaseFirestore.collection(collection).where("approved", isEqualTo: false).snapshots().map((query) =>
           query.docs.map((item) => OfficerModel.fromJSON(item.data())).toList());
 }

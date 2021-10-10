@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:police_info_system/app/data/officers_model.dart';
 
 import '../controllers/officer_details_controller.dart';
-import 'package:get/get.dart';
 
 class OfficerDetailsView extends GetView<OfficerDetailsController> {
 
@@ -141,6 +140,32 @@ class OfficerDetailsView extends GetView<OfficerDetailsController> {
 
               ],
             ),
+
+            SizedBox(height: 20,),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(onPressed: (){
+                  // approveOfficer(officer.id!);
+                }, child: Text('Approve')),
+                SizedBox(width: 20,),
+
+                ElevatedButton(onPressed: (){
+                  // approveOfficer(officer.id!);
+                },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(Colors.pink),
+                    ),
+                    child: Text('Decline')),
+                SizedBox(width: 20,),
+
+
+              ],
+            ),
+
+
+
           ],
         ),
       )),

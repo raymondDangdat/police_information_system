@@ -9,12 +9,12 @@ class QueryView extends GetView<QueryController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('QueryView'),
+        title: Text('Queries'),
         centerTitle: true,
       ),
       body: Center(
         child: Text(
-          'QueryView is working',
+          'Coming Soon',
           style: TextStyle(fontSize: 20),
         ),
       ),
